@@ -24,7 +24,6 @@ namespace MyLab.CtxLog
 
             return serviceCollection
                 .AddSingleton<ILogCtxDataSourceFactory>(resourceRegistry)
-                .AddHttpContextAccessor()
                 .AddSingleton<ICtxLogSource, DefaultCtxLogSource>();
         }
     }

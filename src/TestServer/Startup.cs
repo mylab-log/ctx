@@ -30,7 +30,8 @@ namespace TestServer
             {
                 registrar.RegisterLogDataSource<CtxHeaderLogDataSource>();
             });
-            services.AddSingleton<SingletonService>();
+            services.AddSingleton<SingletonService>()
+                .AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
