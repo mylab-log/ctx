@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Andrey O.</Authors>
+    <AssemblyVersion>1.0.0.2304</AssemblyVersion>
+    <FileVersion>1.0.0.2304</FileVersion>
+    <RepositoryUrl>https://github.com/ozzy-ext-mylab/ctx-log.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>
