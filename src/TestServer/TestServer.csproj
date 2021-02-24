@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyLab.CtxLog\MyLab.CtxLog.csproj" />
+    <ProjectReference Include="..\MyLab.Log.Ctx\MyLab.Log.Ctx.csproj" />
   </ItemGroup>
 
 
