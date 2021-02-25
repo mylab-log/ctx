@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MyLab.Log.Ctx;
@@ -53,6 +54,26 @@ namespace UnitTests
 
             //Act & Assert
             Assert.Throws<InvalidOperationException>(() => sp.GetService<IDslLogger<BuiltInIntegrationTest>>());
+        }
+
+        [Fact]
+        public void ShouldProvideRealLogger()
+        {
+            //Arrange
+            var sb = new StringBuilder();
+
+            var sp = new ServiceCollection()
+                .AddLogging(lb => lb.AddProvider(new MemoryLoggerProvider(sb)))
+                .AddLogCtx()
+                .BuildServiceProvider();
+
+            var logger = (DslLogger<BuiltInIntegrationTest>)sp.GetService<IDslLogger<BuiltInIntegrationTest>>();
+
+            //Act
+            logger.Action("Foo").Write();
+
+            //Assert
+            Assert.Contains(sb.ToString().Split(Environment.NewLine), s => s.Trim() == "Message: Foo");
         }
 
         class TestLogger : ILogger

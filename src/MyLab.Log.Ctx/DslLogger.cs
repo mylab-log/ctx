@@ -12,7 +12,7 @@ namespace MyLab.Log.Ctx
         {
             if(innerLogger == null)
                 throw new InvalidOperationException("Built-In .NET core logging required");
-
+            
             _dsl = innerLogger.Dsl();
         }
 
