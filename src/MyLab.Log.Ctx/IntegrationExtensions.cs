@@ -1,7 +1,8 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
+using MyLab.Log.Dsl;
 
-namespace MyLab.Log.Dsl
+namespace MyLab.Log.Ctx
 {
     /// <summary>
     /// Contains extension methods for integration

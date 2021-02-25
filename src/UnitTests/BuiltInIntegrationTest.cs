@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MyLab.Log.Ctx;
+using MyLab.Log.Dsl;
 using Xunit;
 
 namespace UnitTests
