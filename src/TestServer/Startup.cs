@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using MyLab.CtxLog;
+using MyLab.Log.Ctx;
 
 namespace TestServer
 {
@@ -26,10 +20,8 @@ namespace TestServer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddCtxLogging(registrar =>
-            {
-                registrar.RegisterLogDataSource<CtxHeaderLogDataSource>();
-            });
+            services.AddLogCtx();
+
             services.AddSingleton<SingletonService>()
                 .AddHttpContextAccessor();
         }

@@ -9,9 +9,11 @@ namespace MyLab.Log.Ctx
     /// </summary>
     public static class IntegrationExtensions
     {
-        public static IServiceCollection AddLogCtx(this IServiceCollection services)
+        public static IServiceCollection AddLogCtx(this IServiceCollection services, Action<CtxLoggerExtensionRegistrar> extensionRegistration = null)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
+
+            extensionRegistration?.Invoke(new CtxLoggerExtensionRegistrar(services));
 
             return services.AddScoped<IDslLogger, DslLogger>()
                 .AddScoped(typeof(IDslLogger<>), typeof(DslLogger<>));

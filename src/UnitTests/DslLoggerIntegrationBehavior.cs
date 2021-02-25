@@ -8,7 +8,7 @@ using Xunit;
 
 namespace UnitTests
 {
-    public class BuiltInIntegrationTest
+    public class DslLoggerIntegrationBehavior
     {
         [Fact]
         public void ShouldProvideLogger()
@@ -37,7 +37,7 @@ namespace UnitTests
                 .BuildServiceProvider();
 
             //Act
-            var logger = sp.GetService<IDslLogger<BuiltInIntegrationTest>>();
+            var logger = sp.GetService<IDslLogger<DslLoggerIntegrationBehavior>>();
 
             //Assert
             Assert.NotNull(logger);
@@ -53,7 +53,7 @@ namespace UnitTests
                 .BuildServiceProvider();
 
             //Act & Assert
-            Assert.Throws<InvalidOperationException>(() => sp.GetService<IDslLogger<BuiltInIntegrationTest>>());
+            Assert.Throws<InvalidOperationException>(() => sp.GetService<IDslLogger<DslLoggerIntegrationBehavior>>());
         }
 
         [Fact]
@@ -67,7 +67,7 @@ namespace UnitTests
                 .AddLogCtx()
                 .BuildServiceProvider();
 
-            var logger = (DslLogger<BuiltInIntegrationTest>)sp.GetService<IDslLogger<BuiltInIntegrationTest>>();
+            var logger = (DslLogger<DslLoggerIntegrationBehavior>)sp.GetService<IDslLogger<DslLoggerIntegrationBehavior>>();
 
             //Act
             logger.Action("Foo").Write();
