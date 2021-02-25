@@ -16,7 +16,7 @@ namespace UnitTests
             var sp = new ServiceCollection()
                 .AddLogging()
                 .AddSingleton<ILogger, TestLogger>()
-                .AddDslLog()
+                .AddLogCtx()
                 .BuildServiceProvider();
             
             //Act
@@ -32,7 +32,7 @@ namespace UnitTests
             //Arrange
             var sp = new ServiceCollection()
                 .AddLogging()
-                .AddDslLog()
+                .AddLogCtx()
                 .BuildServiceProvider();
 
             //Act
@@ -48,7 +48,7 @@ namespace UnitTests
             //Arrange
             var sp = new ServiceCollection()
                 //.AddLogging()
-                .AddDslLog()
+                .AddLogCtx()
                 .BuildServiceProvider();
 
             //Act & Assert

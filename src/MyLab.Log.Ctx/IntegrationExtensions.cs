@@ -9,7 +9,7 @@ namespace MyLab.Log.Ctx
     /// </summary>
     public static class IntegrationExtensions
     {
-        public static IServiceCollection AddDslLog(this IServiceCollection services)
+        public static IServiceCollection AddLogCtx(this IServiceCollection services)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
 
