@@ -21,12 +21,15 @@ public class Startup
     {
 	    //....
 	    
+        services.AddLogging();
         services.AddLogCtx();	
         
         //....
     }
 }
 ```
+
+**Important!** Built-in logging is required (`AddLogging()`).
 
 Using `IDslLogger` as `DI` injected dependency:
 
@@ -67,6 +70,7 @@ public class Startup
     {
 	    //....
 	    
+        services.AddLogging();
         services.AddLogCtx(registrar => 
         		registrar.Register<TLogCtxExtension>()
         	);	
